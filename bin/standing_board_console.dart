@@ -1,5 +1,6 @@
 import 'package:standing_board_console/models/soccer_standing.dart';
 import 'package:standing_board_console/services/laliga_service.dart';
+import 'package:standing_board_console/services/league_1_service.dart';
 import 'package:standing_board_console/services/premiere_league_service.dart';
 import 'package:standing_board_console/services/serie_a_service.dart';
 import 'package:universal_html/controller.dart';
@@ -9,7 +10,8 @@ void main(List<String> arguments) {
   print('Standing Board Console Version 1.0');
   // _getDataEPL();
   // _getDataSerieA();
-  _getDataLaliga();
+  // _getDataLaliga();
+  _getDataLeague1();
 }
 
 /// Get data english premiere league
@@ -60,6 +62,23 @@ Future<void> _getDataLaliga() async {
       await laligaService.getCurrentStanding();
 
   for (var item in laligaStanding) {
+    print('${item.name} (${item.points})');
+  }
+}
+
+/// Get data league 1 french
+Future<void> _getDataLeague1() async {
+  final controller = WindowController();
+  await controller.openHttp(
+    uri: Uri.parse("https://www.ligue1.com/ranking"),
+  );
+
+  League1Service league1service = League1Service(windowController: controller);
+
+  List<SoccerStanding> leagueStanding =
+      await league1service.getCurrentStanding();
+
+  for (var item in leagueStanding) {
     print('${item.name} (${item.points})');
   }
 }
