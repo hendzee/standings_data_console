@@ -1,5 +1,5 @@
 ## Standing Data Console
-This is console application to grab data for standing soccer information from some popular league. There are English premiere league, Serie A Itally, Spain's La Liga, French's League 1 and Germany's Bundesliga. This applicationn was builded by dart language and use scrapping method to grab data. It can be implemented to mobile or web application. For other language, the logic from this app still can be used.
+This is console application to grab data for standing soccer information from some popular league. There are English premiere league, Serie A Itally, Spain's La Liga, French's League 1 and Germany's Bundesliga. This applicationn was builded by dart language and use scrapping method to grab data. It can be implemented to mobile or web application. For other language, the logic from this app still can be used. If you want to ask something, you can reach me at hendzcode@gmail.com
 
 ### Code Structure
 There are two important folder: models and services, models folder held blueprint or model data that should be present, then services folder held classes for grabbing data purpose.
