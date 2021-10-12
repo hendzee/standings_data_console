@@ -1,5 +1,7 @@
+import 'package:standing_board_console/models/gp_standing.dart';
 import 'package:standing_board_console/models/soccer_standing.dart';
 import 'package:standing_board_console/services/bundesliga_service.dart';
+import 'package:standing_board_console/services/gp_service.dart';
 import 'package:standing_board_console/services/laliga_service.dart';
 import 'package:standing_board_console/services/league_1_service.dart';
 import 'package:standing_board_console/services/premiere_league_service.dart';
@@ -13,7 +15,7 @@ void main(List<String> arguments) {
   // _getDataSerieA();
   // _getDataLaliga();
   // _getDataLeague1();
-  _getDataBundesliga();
+  _getDataMotoGp();
 }
 
 /// Get data english premiere league
@@ -100,5 +102,23 @@ Future<void> _getDataBundesliga() async {
 
   for (var item in leagueStanding) {
     print('${item.name} (${item.points})');
+  }
+}
+
+/// Get data Moto GP's standing data
+Future<void> _getDataMotoGp() async {
+  final controller = WindowController();
+  await controller.openHttp(
+    uri: Uri.parse("https://www.motogp.com/en/Results+Statistics"),
+  );
+
+  GpService gpService = GpService(windowController: controller);
+
+  gpService.getCurrentStanding();
+
+  List<GpStanding> gpStanding = await gpService.getCurrentStanding();
+
+  for (var item in gpStanding) {
+    print('${item.rider} (${item.points})');
   }
 }
