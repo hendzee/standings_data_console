@@ -1,6 +1,8 @@
+import 'package:standing_board_console/models/formula_1_standing.dart';
 import 'package:standing_board_console/models/gp_standing.dart';
 import 'package:standing_board_console/models/soccer_standing.dart';
 import 'package:standing_board_console/services/bundesliga_service.dart';
+import 'package:standing_board_console/services/formula_1_service.dart';
 import 'package:standing_board_console/services/gp_service.dart';
 import 'package:standing_board_console/services/laliga_service.dart';
 import 'package:standing_board_console/services/league_1_service.dart';
@@ -15,7 +17,8 @@ void main(List<String> arguments) {
   // _getDataSerieA();
   // _getDataLaliga();
   // _getDataLeague1();
-  _getDataMotoGp();
+  // _getDataMotoGp();
+  _getDataFormula1();
 }
 
 /// Get data english premiere league
@@ -120,5 +123,25 @@ Future<void> _getDataMotoGp() async {
 
   for (var item in gpStanding) {
     print('${item.rider} (${item.points})');
+  }
+}
+
+/// Get data Formula 1 standing data
+Future<void> _getDataFormula1() async {
+  final controller = WindowController();
+  await controller.openHttp(
+    uri: Uri.parse("https://www.autosport.com/f1/standings/"),
+  );
+
+  Formula1Service formula1service =
+      Formula1Service(windowController: controller);
+
+  formula1service.getCurrentStanding();
+
+  List<Formula1Standing> formula1Standing =
+      await formula1service.getCurrentStanding();
+
+  for (var item in formula1Standing) {
+    print('${item.driver} (${item.points})');
   }
 }
