@@ -15,9 +15,14 @@ League 1           |     v     |  v    |     v      |      v      |      v      
 Bundesliga         |     v     |  v    |     v      |      v      |      v      |     v      |  -  |  -  |  v  |    v   |
 
 ### Moto GP
-Information        | Rider | Bike  |   Nation   |    Points   |
------------------- | :---: | :---: | :--------: | :---------: |
-Moto GP            |   v   |   v   |      v     |      v      |
+Information        | Rider |   Nation   |    Points   |
+------------------ | :---: | :--------: | :---------: |
+Moto GP            |   v   |      v     |      v      |
+
+### Formula 1
+Information        | Rider |   Nation   |    Points   |
+------------------ | :---: | :--------: | :---------: |
+Moto GP            |   v   |      v     |      v      |
 
 ### Source
 The sources data was listed bellow:
@@ -26,4 +31,5 @@ The sources data was listed bellow:
 - [La Liga](https://www.laliga.com/en-GB/laliga-santander/standing)
 - [League 1](https://www.ligue1.com/ranking)
 - [Bundesliga](https://www.bundesliga.com/en/bundesliga/table)
-- [Moto GP](https://www.motogp.com/en/Results+Statistics)
+- [Moto GP](https://www.autosport.com/motogp/standings/)
+- [Formula 1](https://www.autosport.com/f1/standings/)
