@@ -23,8 +23,7 @@ class PremiereLeagueService extends SoccerService {
       }
       standings.add(
         SoccerStanding(
-          name:
-              content[0].children[i].attributes['data-filtered-table-row-name'],
+          name: content[0].children[i].children[2].querySelector('.short').text,
           logo: content[0]
               .children[i]
               .children[2]

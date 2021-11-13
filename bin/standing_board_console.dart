@@ -109,7 +109,7 @@ Future<void> _getDataBundesliga() async {
 Future<void> _getDataMotoGp() async {
   final controller = WindowController();
   await controller.openHttp(
-    uri: Uri.parse("https://www.motogp.com/en/Results+Statistics"),
+    uri: Uri.parse("https://www.autosport.com/motogp/standings/"),
   );
 
   GpService gpService = GpService(windowController: controller);

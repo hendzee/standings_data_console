@@ -13,17 +13,21 @@ class GpService extends RaceService {
   @override
   Future<List<GpStanding>> getCurrentStanding() async {
     final content = windowController.window.document
-        .querySelectorAll("#main_result table tbody tr");
+        .querySelectorAll(".ms-table--result tr");
 
     List<GpStanding> standings = [];
 
+    print(content.length);
+
     for (int i = 0; i < content.length; i++) {
+      if (i == 0) continue;
       standings.add(
         GpStanding(
-          rider: content[i].children[1].children[0].text,
-          bike: content[i].children[2].text,
-          nation: content[i].children[3].text,
-          points: content[i].children[4].text,
+          rider: content[i].children[1].children[0].children[1].text,
+          bike: '',
+          nation:
+              content[i].children[1].children[0].children[0].attributes['alt'],
+          points: content[i].children[2].text,
         ),
       );
     }
